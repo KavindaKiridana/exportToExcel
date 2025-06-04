@@ -1,1 +1,2 @@
-hello world.xlsx
+# Ignore all Excel files
+/*.xlsx 
