@@ -11,12 +11,12 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate; // To work with cell coordinates e
 use PhpOffice\PhpSpreadsheet\Style\Alignment; // For alignment constants
 
 
+// Get the sheet type from the GET request
+// It's crucial to sanitize this input to prevent SQL injection or other issues.
+$sheetType = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'Zn'; 
 
-
-
-function exportMetalType($sheetType):void {
 // STEP 1: Define your desired sheet type (same as your HTML display logic)
-$sheetType = 'Zn'; // Or whatever type you want to export
+//$sheetType = 'Zn'; // Or whatever type you want to export
 
 // STEP 2: Get the type's info
 $typeQuery = "SELECT * FROM sheet_type_table WHERE Name = ?";
@@ -193,6 +193,6 @@ mysqli_close($conn);
 // Exit to prevent any further HTML output
 exit();
 
-}
+
 ?>
 
